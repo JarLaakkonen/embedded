@@ -1,9 +1,8 @@
 // *******************************
 //  Hox opettajalle 
 /*
-Tavoittelen 3 Pistettä tästä tehtävästä
-,mutta tällä hetkellä Toteutus on vain 1 pisteellä.
-Päivätän tätä viestiö jos koodi täyttää 2 tai 3 pisteen arvioinnit.
+Tavoittelen 3 Pistettä tästä tehtävästä, mutta tällä hetkellä Toteutus on vain 1 pisteellä.
+Päivitän tätä viestiä jos koodi täyttää 2 tai 3 pisteen arvioinnit.
 
 Miten koodi toimiii
 Tällä hetkellä mainissa ensin alustetaan ledit (init_led).
@@ -65,8 +64,9 @@ void task1(void *, void *, void*) {
                 if (state == 1 && timer == 1){
                 gpio_pin_set_dt(&blue,0);
                 gpio_pin_set_dt(&green,0);
-		printk("Punainen valo\n");
+		
                 gpio_pin_set_dt(&red,1);
+                printk("Punainen valo\n");
                // gpio_pin_set_dt(&red,0);
 		state = 2;
                 timer = 0;
