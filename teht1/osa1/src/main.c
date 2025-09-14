@@ -1,14 +1,31 @@
 // *******************************
-// This example declares two tasks
-// and runs them in parallel
+//  Hox opettajalle 
+/*
+Tavoittelen 3 Pistettä tästä tehtävästä
+,mutta tällä hetkellä Toteutus on vain 1 pisteellä.
+Päivätän tätä viestiö jos koodi täyttää 2 tai 3 pisteen arvioinnit.
+
+Miten koodi toimiii
+Tällä hetkellä mainissa ensin alustetaan ledit (init_led).
+
+Tämän jälkeen alustetaan tila (state) ja laitetaan timer arvoksi 1.
+
+Jokainen funktio katsoo tietyn väliajoin tilan ja jos tila on mitä odotetaan niin päivitetään valo.
+tässä samalla vaihdetaan time arvoksi 0.
+
+Main loopissa katsotaan tila ja jos tila on jotain muuta kuin 1 niin vaihdetaan timer arvoksi 1,
+jolloin funktiot voivat vaaditun staten mukaan päivittää valon.
+
+*/ 
 
 #include <zephyr/kernel.h>
 #include <zephyr/sys/printk.h>
 #include <zephyr/device.h>
 #include <zephyr/drivers/gpio.h>
+
 static const struct gpio_dt_spec red = GPIO_DT_SPEC_GET(DT_ALIAS(led0), gpios);
- static const struct gpio_dt_spec green = GPIO_DT_SPEC_GET(DT_ALIAS(led1), gpios);
- static const struct gpio_dt_spec blue = GPIO_DT_SPEC_GET(DT_ALIAS(led2), gpios);
+static const struct gpio_dt_spec green = GPIO_DT_SPEC_GET(DT_ALIAS(led1), gpios);
+static const struct gpio_dt_spec blue = GPIO_DT_SPEC_GET(DT_ALIAS(led2), gpios);
 
 // Task declarations
 void task1(void *, void *, void*);
@@ -27,15 +44,15 @@ int main(void) {
 	while (true) {
                 if (state == 0){
                 init_led();
-                 state = 1;
+                state = 1;
                 timer = 1;
                 }
                 else{
                 timer = 1;
                 }
-		printk("Hello from main\n");
-		k_msleep(1000);
-		// k_yield();
+	printk("Hello from main\n");
+	k_msleep(1000);
+	// k_yield();
 	}
 	
 	return 0;
