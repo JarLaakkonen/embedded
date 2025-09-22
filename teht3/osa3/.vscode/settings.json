@@ -1,0 +1,6 @@
+{
+    "nrf-connect.debugging.bindings": {
+        "${workspaceFolder}/build": "Launch build",
+        "${workspaceFolder}/build/osa1": "Launch build"
+    }
+}
