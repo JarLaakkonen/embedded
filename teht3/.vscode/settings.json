@@ -1,0 +1,6 @@
+{
+    "cmake.sourceDirectory": "C:/Users/jarno/Desktop/embedded/embedded/teht3/osa3",
+    "nrf-connect.applications": [
+        "${workspaceFolder}\\osa3"
+    ]
+}
