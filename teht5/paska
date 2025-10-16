@@ -1,0 +1,23 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Serial HHMMSS LIGHT_NULL_ERROR
+	Write Data   ${test6}   encoding=ascii 
+	Log To Console   Send sequence ${test6}
+	${read} =   Read Until   terminator=58   encoding=ascii 
+	Log To Console   Received ${read}
+	Should Be Equal As Strings   ${read}    ${LIGHT_NULL_ERROR}
+	Log To Console   Tested ${read} is same as ${LIGHT_NULL_ERROR}
